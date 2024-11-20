@@ -1,0 +1,48 @@
+{% extends "index.html" %}
+
+{% block title %}Nouvelle Commande{% endblock %}
+
+{% block content %}
+<h2>Passer une Nouvelle Commande</h2>
+<form method="POST">
+    <label for="nom">Nom du Client:</label>
+    <input type="text" id="nom" name="nom" required>
+
+    <label for="telephone">Téléphone:</label>
+    <input type="text" id="telephone" name="telephone" required>
+
+    <label for="adresse">Adresse:</label>
+    <textarea id="adresse" name="adresse" required></textarea>
+
+    <label for="croute">Type de Croûte:</label>
+    <select id="croute" name="croute" required>
+        <option value="1">Classique</option>
+        <option value="2">Mince</option>
+        <option value="3">Épaisse</option>
+    </select>
+
+    <label for="sauce">Type de Sauce:</label>
+    <select id="sauce" name="sauce" required>
+        <option value="1">Tomate</option>
+        <option value="2">Spaghetti</option>
+        <option value="3">Alfredo</option>
+    </select>
+
+    <label>Garnitures (choisir jusqu'à 4):</label>
+    <div>
+        <input type="checkbox" name="garniture" value="1"> Pepperoni<br>
+        <input type="checkbox" name="garniture" value="2"> Champignons<br>
+        <input type="checkbox" name="garniture" value="3"> Oignons<br>
+        <input type="checkbox" name="garniture" value="4"> Poivrons<br>
+        <input type="checkbox" name="garniture" value="5"> Olives<br>
+        <input type="checkbox" name="garniture" value="6"> Anchois<br>
+        <input type="checkbox" name="garniture" value="7"> Bacon<br>
+        <input type="checkbox" name="garniture" value="8"> Poulet<br>
+        <input type="checkbox" name="garniture" value="9"> Maïs<br>
+        <input type="checkbox" name="garniture" value="10"> Fromage<br>
+        <input type="checkbox" name="garniture" value="11"> Piments forts<br>
+    </div>
+
+    <button type="submit">Confirmer la Commande</button>
+</form>
+{% endblock %}

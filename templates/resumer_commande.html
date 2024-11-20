@@ -1,0 +1,43 @@
+{% extends "index.html" %}
+
+{% block title %}Résumé de la Commande{% endblock %}
+
+{% block content %}
+<h2>Résumé de votre Commande</h2>
+
+<p>Veuillez vérifier les détails de votre commande avant de la confirmer.</p>
+
+<table>
+    <tr>
+        <th>Nom du Client</th>
+        <td>{{ commande.nom }}</td>
+    </tr>
+    <tr>
+        <th>Téléphone</th>
+        <td>{{ commande.telephone }}</td>
+    </tr>
+    <tr>
+        <th>Adresse</th>
+        <td>{{ commande.adresse }}</td>
+    </tr>
+    <tr>
+        <th>Type de Croûte</th>
+        <td>{{ commande.type_croute }}</td>
+    </tr>
+    <tr>
+        <th>Type de Sauce</th>
+        <td>{{ commande.type_sauce }}</td>
+    </tr>
+    <tr>
+        <th>Garnitures</th>
+        <td>{{ commande.garnitures | join(", ") }}</td>
+    </tr>
+</table>
+
+<form method="POST" action="{{ url_for('resumer_commande') }}">
+    <button type="submit">Confirmer la Commande</button>
+</form>
+
+<a href="{{ url_for('commande') }}">Modifier la Commande</a>
+
+{% endblock %}

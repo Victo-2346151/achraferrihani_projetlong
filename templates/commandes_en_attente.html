@@ -1,0 +1,46 @@
+{% extends "index.html" %}
+
+{% block title %}Commandes en Attente{% endblock %}
+
+{% block content %}
+<h2>Commandes en Attente de Livraison</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Commande ID</th>
+            <th>Nom du Client</th>
+            <th>Téléphone</th>
+            <th>Adresse</th>
+            <th>Date de Commande</th>
+            <th>Type de Croûte</th>
+            <th>Type de Sauce</th>
+            <th>Garnitures</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for commande in commandes %}
+        <tr>
+            <td>{{ commande.commande_id }}</td>
+            <td>{{ commande.nom }}</td>
+            <td>{{ commande.telephone }}</td>
+            <td>{{ commande.adresse }}</td>
+            <td>{{ commande.date_commande }}</td>
+            <td>{{ commande.type_croute }}</td>
+            <td>{{ commande.type_sauce }}</td>
+            <td>{{ commande.garnitures }}</td>
+            <td>
+                <form method="POST" action="{{ url_for('livrer_commande', commande_id=commande.commande_id) }}">
+                    <button type="submit">Marquer comme Livrée</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% if not commandes %}
+<p>Aucune commande en attente de livraison.</p>
+{% endif %}
+{% endblock %}
